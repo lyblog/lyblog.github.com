@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+  <!-- <div class="title"> -->
+  <!--   <a class="extra" href="/">&uarr; Back home</a> -->
+  <!--   <\!-- <a href="/">Home</a> -\-> -->
+  <!-- </div> -->
+  
+
+  <div class="backhome">
+    <a class="extra" href="/zh/">返回首页&uarr;</a>
+  </div>
+
+  <div id="post">
+    <h1>{{ page.title }}</h1>
+    <div class="date">{{ page.date | date: "%Y-%m-%d" }}</div>
+    {{ content }}
+  </div>

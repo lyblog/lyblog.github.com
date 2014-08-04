@@ -1,0 +1,13 @@
+_site/*
+_theme_packages/*
+_posts/*~
+_posts/*.draft
+_posts/2013-08-10-confessions.md
+
+Thumbs.db
+.DS_Store
+
+!.gitkeep
+
+.rbenv-version
+.rvmrc

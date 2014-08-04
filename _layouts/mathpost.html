@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>{{ page.title }}</title>
+   <meta name="author" content="Yongbiao Long" />
+   <link rel="alternate" title="Atom feed" type="application/atom+xml" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          extensions: ["tex2jax.js","AMSmath.js", "AMSsymbols.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {                                                        
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],                          
+            processEscapes: true                                              
+          },         
+          "HTML-CSS": { availableFonts: ["TeX"] } 
+        });              
+        MathJax.Hub.Config({
+          TeX: { equationNumbers: { autoNumber: "AMS" } }
+        });
+  </script>
+  <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+  </script>
+  <script type="text/javascript"
+     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/javascript"
+     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
+  </script>
+
+</head>
+<body>
+
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<div class="site">
+  <div class="backhome">
+    <a class="extra" href="/zh/">返回首页&uarr;</a>
+  </div>
+  
+  <div id="post">
+    <h1>{{ page.title }}</h1>
+    <div class="date">{{ page.date | date_to_string }}</div>
+    {{ content }}
+  </div>
+  <div class="footer">
+    <p>
+      Copyright &copy; 2013 - Yongbiao Long - Powered by <a href="https://github.com/mojombo/jekyll"  target="_blank">Jekyll</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
