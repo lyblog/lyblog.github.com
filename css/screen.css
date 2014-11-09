@@ -48,6 +48,18 @@ h1 {
     padding-right: 15px;
 }
 
+.header a {
+  color: gray;
+}
+
+.header a:hover {
+  color: gray;
+}
+
+.header a:visited {
+  color: gray;
+}
+
 /* .post { */
 /*     padding-top: 10px; */
 /* } */
