@@ -1,14 +1,12 @@
 ---
-layout: page
+layout: default
 title: Yongbiao's Personal Blog
 ---
-
-<div id="home">
-  <h2>Blog Posts</h2>
-  <ul class="posts">
-    {% for post in site.categories.en %}
-      <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-  <h2>Miscellaneous</h2>
-</div>
+<h1>Yongbiao's Personal Blog</h1>
+<h2>Blog Posts</h2>
+<ul class="posts">
+  {% for post in site.categories.en %}
+  <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+<h2>Miscellaneous</h2>

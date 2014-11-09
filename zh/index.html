@@ -1,14 +1,13 @@
 ---
-layout: page_zh
+layout: default
 title: 龙永彪个人博客
 ---
 
-<div id="home">
-  <h2>博客列表</h2>
-  <ul class="posts">
-    {% for post in site.categories.zh %}
-      <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-  <h2>杂项</h2>
-</div>
+<h1>龙永彪个人博客</h1>
+<h2>博客列表</h2>
+<ul class="posts">
+  {% for post in site.categories.zh %}
+  <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+<h2>杂项</h2>

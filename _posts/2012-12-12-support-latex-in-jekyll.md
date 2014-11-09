@@ -1,5 +1,5 @@
 ---
-layout: mathpost
+layout: default
 category: zh
 title: "在jekyll中使用LaTeX"
 ---

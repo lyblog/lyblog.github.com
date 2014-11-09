@@ -15,40 +15,49 @@ I got a solution from ref [1] --- install the non-free Nvidia driver. It's simpl
 
 First, add "contrib" and "non-free" components to `/etc/apt/sources.list`. The initial `/etc/apt/sources.list` was like this:
 
-    deb http://debian.ustc.edu.cn/debian/ wheezy main
-	deb-src http://debian.ustc.edu.cn/debian/ wheezy main
-	deb http://debian.ustc.edu.cn/debian/ wheezy-updates main
-	deb-src http://debian.ustc.edu.cn/debian/ wheezy-updates main
+{% highlight bash %}
+deb http://debian.ustc.edu.cn/debian/ wheezy main
+deb-src http://debian.ustc.edu.cn/debian/ wheezy main
+deb http://debian.ustc.edu.cn/debian/ wheezy-updates main
+deb-src http://debian.ustc.edu.cn/debian/ wheezy-updates main
+{% endhighlight %}
 
 What was expected (because nvidia driver is not free):
 
-    deb http://debian.ustc.edu.cn/debian/ wheezy main non-free contrib
-	deb-src http://debian.ustc.edu.cn/debian/ wheezy main non-free contrib
-	deb http://debian.ustc.edu.cn/debian/ wheezy-updates main non-free contrib
-	deb-src http://debian.ustc.edu.cn/debian/ wheezy-updates main non-free contrib
+{% highlight bash %}
+deb http://debian.ustc.edu.cn/debian/ wheezy main non-free contrib
+deb-src http://debian.ustc.edu.cn/debian/ wheezy main non-free contrib
+deb http://debian.ustc.edu.cn/debian/ wheezy-updates main non-free contrib
+deb-src http://debian.ustc.edu.cn/debian/ wheezy-updates main non-free contrib
+{% endhighlight %}
 
 My Nvidia graphics processing unit(GPU) series/codename of an installed video card can be identified using the lspci command:
 
-    $ lspci -nn | grep VGA
-	01:00.0 VGA compatible controller [0300]: NVIDIA Corporation G98M [GeForce G105M] 
-	[10de:0a69] (rev a2)
+{% highlight bash %}
+$ lspci -nn | grep VGA
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation G98M [GeForce G105M] 
+[10de:0a69] (rev a2)
+{% endhighlight %}
 
 GeForce G105M is among the supported devices of Version 304.88, see [2].
 
 Second, update the list of available packages. Install the appropriate linux-headers and kernel module packages:
 
-    $ sudo aptitude update
-    $ sudo aptitude -r install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') \
-	nvidia-kernel-dkms
+{% highlight bash %}
+$ sudo aptitude update
+$ sudo aptitude -r install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') nvidia-kernel-dkms
+{% endhighlight %}
 
 This will also install the recommended [nvidia-glx](http://packages.debian.org/wheezy/nvidia-glx) package.
 
 Third, create an Xorg server configuration file `/etc/X11/xorg.conf.d/20-nvidia.conf`:
 
-    Section "Device"
-        Identifier     "My GPU"
-        Driver         "nvidia"
-    EndSection
+{% highlight bash %}
+Section "Device"
+    Identifier     "My GPU"
+    Driver         "nvidia"
+EndSection
+{% endhighlight %}
 
 Note: this file and the xorg.conf.d directory do not exist. At first I forgot to create this file, only to find that I can't start X any more. :-(
 
